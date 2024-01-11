@@ -1,0 +1,37 @@
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AnaesthesiaDemoApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+
+        <!-- Primary Color Notification Bar,Filled Button -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorTertiary">@color/grey</item>
+
+        <item name="android:colorBackground">?attr/colorSecondary</item>
+        <item name="colorOnBackground">?attr/colorSecondary</item>
+        <item name="colorSurface">?attr/colorSecondary</item>
+        <item name="colorOnSurface">?attr/colorSecondary</item>
+    </style>
+
+
+    <style name="ButtonWithBlackTheme" parent="Widget.Material3.Button">
+        <item name="cornerRadius">@dimen/buttonRadius</item>
+        <item name="android:paddingVertical">@dimen/bottomButtonPaddingVertical</item>
+    </style>
+
+    <style name="QuantityButtonTheme" parent="Widget.Material3.Button">
+        <item name="cornerRadius">@dimen/buttonRadius</item>
+    </style>
+
+    <style name="ButtonWithWhiteTintAndBlackOutlineTheme" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">@dimen/buttonRadius</item>
+        <item name="backgroundTint">?attr/colorSecondary</item>
+        <item name="strokeColor">?attr/colorPrimary</item>
+        <item name="android:paddingVertical">@dimen/bottomButtonPaddingVertical</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+
+    <style name="Theme.AnaesthesiaDemoApp" parent="Base.Theme.AnaesthesiaDemoApp" />
+</resources>

@@ -1,0 +1,356 @@
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/carouselConstraintLayoutShimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/productCarousel_shimmer"
+                android:layout_width="0dp"
+                android:layout_height="700dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:background="@color/shimmer_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <me.relex.circleindicator.CircleIndicator3
+                android:id="@+id/circleIndicator_shimmer"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                app:ci_animator="@anim/circle_indicator_anim"
+                app:ci_drawable="@drawable/circle_indicator_custom_selected"
+                app:ci_drawable_unselected="@drawable/circle_indicator_custom_unselected"
+                app:ci_height="10dp"
+                app:ci_margin="2dp"
+                app:ci_width="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productCarousel_shimmer" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carouselConstraintLayoutShimmer"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3_shimmer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/productBrandNameTV_shimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/shimmer_grey"
+                    android:text="Textview"
+                    android:textColor="@color/shimmer_grey"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/productNameTV_shimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/shimmer_grey"
+                    android:text="TextView"
+                    android:textColor="@color/shimmer_grey"
+                    app:layout_constraintStart_toStartOf="@+id/productBrandNameTV_shimmer"
+                    app:layout_constraintTop_toBottomOf="@+id/productBrandNameTV_shimmer" />
+
+                <TextView
+                    android:id="@+id/productSKUTV_shimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/shimmer_grey"
+                    android:text="TextView"
+                    android:textColor="@color/shimmer_grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/productNameTV_shimmer"
+                    app:layout_constraintTop_toBottomOf="@+id/productNameTV_shimmer" />
+
+                <TextView
+                    android:id="@+id/productPriceTVShimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/shimmer_grey"
+                    android:text="0 KWD"
+                    android:textColor="@color/shimmer_grey"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/productBrandNameTV_shimmer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/productBrandNameTV_shimmer" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/productColorRV_shimmer"
+                android:layout_width="0dp"
+                android:layout_height="75dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" >
+
+                <include layout="@layout/product_color_shimmer"/>
+                <include layout="@layout/product_color_shimmer"/>
+                <include layout="@layout/product_color_shimmer"/>
+                <include layout="@layout/product_color_shimmer"/>
+                <include layout="@layout/product_color_shimmer"/>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Colors:"
+                android:textColor="?attr/colorTertiary"
+                android:textSize="@dimen/colorNameTextSize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3_shimmer" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/loan_custom_layout"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/productColorRV_shimmer"
+                app:layout_constraintStart_toStartOf="@+id/productColorRV_shimmer"
+                app:layout_constraintTop_toBottomOf="@+id/productColorRV_shimmer">
+
+                <TextView
+                    android:id="@+id/productEMITV_shimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="19dp"
+                    android:text="TextView"
+                    android:background="@color/shimmer_grey"
+                    android:textColor="@color/shimmer_grey"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView5_shimmer"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView5_shimmer"
+                    app:layout_constraintHorizontal_bias="0.15"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView5_shimmer"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/shimmer_grey"
+                    android:textColor="@color/shimmer_grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/productEMITV_shimmer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="TextView"
+                    android:background="@color/shimmer_grey"
+                    android:textColor="@color/shimmer_grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/productEMITV_shimmer"
+                    app:layout_constraintTop_toBottomOf="@+id/productEMITV_shimmer"
+                    app:layout_constraintVertical_bias="0.3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Quantity"
+                    android:textColor="?attr/colorTertiary"
+                    android:textSize="@dimen/colorNameTextSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/reduceQuantityBtn_shimmer"
+                    style="@style/QuantityButtonTheme"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/grey"
+                    android:text="-"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView10"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+
+                <EditText
+                    android:id="@+id/quantityET_shimmer"
+                    android:layout_width="70dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="10dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:text="1"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:background="@drawable/edittext_outline"
+                    app:layout_constraintBottom_toBottomOf="@+id/reduceQuantityBtn_shimmer"
+                    app:layout_constraintStart_toEndOf="@+id/reduceQuantityBtn_shimmer"
+                    app:layout_constraintTop_toTopOf="@+id/reduceQuantityBtn_shimmer" />
+
+
+                <Button
+                    android:id="@+id/addQuantityBtnShimmer"
+                    style="@style/QuantityButtonTheme"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="10dp"
+                    android:text="+"
+                    app:layout_constraintBottom_toBottomOf="@+id/quantityET_shimmer"
+                    app:layout_constraintStart_toEndOf="@+id/quantityET_shimmer"
+                    app:layout_constraintTop_toTopOf="@+id/quantityET_shimmer" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout5_shimmer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="PRODUCT INFORMATION"
+                        android:textSize="18sp"
+                        android:textColor="?attr/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/productInfoTrigBtnShimmer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView11"
+                        app:srcCompat="@drawable/ic_arrow_down_24" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/productInfoTV_shimmer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/constraintLayout5_shimmer"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5_shimmer" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/shimmer_grey"
+                        android:textColor="@color/shimmer_grey"
+                        android:layout_marginVertical="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/shimmer_grey"
+                        android:textColor="@color/shimmer_grey"
+                        android:layout_marginVertical="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/shimmer_grey"
+                        android:textColor="@color/shimmer_grey"
+                        android:layout_marginVertical="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/shimmer_grey"
+                        android:textColor="@color/shimmer_grey"
+                        android:layout_marginVertical="5dp"
+                        />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

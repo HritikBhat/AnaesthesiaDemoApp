@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="buttonRadius">0dp</dimen>
+    <dimen name="bottomButtonPaddingVertical">15dp</dimen>
+    <dimen name="titlePageTextSize">16sp</dimen>
+    <dimen name="brandNameTextSize">18sp</dimen>
+    <dimen name="productNameTextSize">16sp</dimen>
+    <dimen name="colorNameTextSize">17sp</dimen>
+    <dimen name="prodInfoSectionTextSize">18sp</dimen>
+    <dimen name="prodInfoDescTextSize">14sp</dimen>
+    <dimen name="iconHeightWidth">32dp</dimen>
+    <dimen name="circleIndicatorHeight">10dp</dimen>
+    <dimen name="circleIndicatorWidth">10dp</dimen>
+    <dimen name="circleIndicatorMargin">2dp</dimen>
+
+    <dimen name="prodSKUTextSize">14sp</dimen>
+    <dimen name="prodEMITextSize">14sp</dimen>
+</resources>

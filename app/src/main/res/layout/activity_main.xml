@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.MainActivity">
+
+        <!--App Bar Layout-->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize">
+                    <TextView
+                        android:id="@+id/appBarTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/initial_page_title_string"
+                        android:textSize="@dimen/titlePageTextSize"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                        app:layout_constraintHorizontal_bias="0.72"
+                        android:ellipsize="end"
+                        android:padding="5dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <ImageView
+                            android:id="@+id/favBtn"
+                            android:layout_width="@dimen/iconHeightWidth"
+                            android:layout_height="@dimen/iconHeightWidth"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/fav_not_enabled_icon" />
+
+                        <ImageView
+                            android:id="@+id/shareBtn"
+                            android:layout_width="@dimen/iconHeightWidth"
+                            android:layout_height="@dimen/iconHeightWidth"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/share_icon" />
+
+                        <ImageView
+                            android:id="@+id/cartBtn"
+                            android:layout_width="@dimen/iconHeightWidth"
+                            android:layout_height="@dimen/iconHeightWidth"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/shopping_cart_icon" />
+
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/shimmer_layout"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/bottomLinearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ScrollView
+                android:id="@+id/mainScrollViewShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <include layout="@layout/layout_custom_placeholder"/>
+
+            </ScrollView>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+        <!--Main Body-->
+        <ScrollView
+            android:id="@+id/mainScrollView"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottomLinearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Carousel Layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/carouselConstraintLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/productCarousel"
+                        android:layout_width="0dp"
+                        android:layout_height="400dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <me.relex.circleindicator.CircleIndicator3
+                        android:id="@+id/circleIndicator"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        app:ci_animator="@anim/circle_indicator_anim"
+                        app:ci_drawable="@drawable/circle_indicator_custom_selected"
+                        app:ci_drawable_unselected="@drawable/circle_indicator_custom_unselected"
+                        app:ci_margin="@dimen/circleIndicatorMargin"
+                        app:ci_height="@dimen/circleIndicatorHeight"
+                        app:ci_width="@dimen/circleIndicatorWidth"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/productCarousel" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Below Carousel Main Layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/carouselConstraintLayout">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/productBrandNameTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/dummy_text_string"
+                            android:textAllCaps="true"
+                            android:textColor="?attr/colorPrimary"
+                            android:textSize="@dimen/brandNameTextSize"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/productNameTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/dummy_text_string"
+                            android:textColor="?attr/colorTertiary"
+                            android:textSize="@dimen/productNameTextSize"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="@+id/productBrandNameTV"
+                            app:layout_constraintTop_toBottomOf="@+id/productBrandNameTV" />
+
+                        <TextView
+                            android:id="@+id/productSKUTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/dummy_text_string"
+                            android:textSize="@dimen/prodSKUTextSize"
+                            android:textColor="?attr/colorTertiary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/productNameTV"
+                            app:layout_constraintTop_toBottomOf="@+id/productNameTV" />
+
+                        <TextView
+                            android:id="@+id/productPriceTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="@string/initial_price_string"
+                            android:textColor="?attr/colorPrimary"
+                            android:textSize="@dimen/brandNameTextSize"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/productBrandNameTV"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/productBrandNameTV" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/productColorRV"
+                        android:layout_width="0dp"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView7"
+                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/colors_string"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/colorNameTextSize"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/textView8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/loan_custom_layout"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/productColorRV"
+                        app:layout_constraintStart_toStartOf="@+id/productColorRV"
+                        app:layout_constraintTop_toBottomOf="@+id/productColorRV">
+
+                        <TextView
+                            android:id="@+id/productEMITV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="19dp"
+                            android:text="@string/dummy_text_string"
+                            android:textSize="@dimen/prodEMITextSize"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                            app:layout_constraintEnd_toStartOf="@+id/imageView5"
+                            app:layout_constraintHorizontal_bias="0.15"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="80dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/tabby_logo"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/productEMITV2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/dummy_text_string"
+                            android:textSize="@dimen/prodEMITextSize"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/productEMITV"
+                            app:layout_constraintTop_toBottomOf="@+id/productEMITV"
+                            app:layout_constraintVertical_bias="0.3" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/quantity"
+                            android:textColor="@color/dark_grey"
+                            android:textSize="@dimen/colorNameTextSize"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+                            android:id="@+id/reduceQuantityBtn"
+                            style="@style/QuantityButtonTheme"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:backgroundTint="@color/grey"
+                            android:text="@string/minus_string"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/textView10"
+                            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+
+                        <EditText
+                            android:id="@+id/quantityET"
+                            android:layout_width="70dp"
+                            android:layout_height="55dp"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/edittext_outline"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:text="@string/qty_initial_value_string"
+                            android:textAlignment="center"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/reduceQuantityBtn"
+                            app:layout_constraintStart_toEndOf="@+id/reduceQuantityBtn"
+                            app:layout_constraintTop_toTopOf="@+id/reduceQuantityBtn" />
+
+
+                        <Button
+                            android:id="@+id/addQuantityBtn"
+                            style="@style/QuantityButtonTheme"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/plus_string"
+                            app:layout_constraintBottom_toBottomOf="@+id/quantityET"
+                            app:layout_constraintStart_toEndOf="@+id/quantityET"
+                            app:layout_constraintTop_toTopOf="@+id/quantityET" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/prodInfoConstraintLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginEnd="1dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/textView11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/product_information_string"
+                                android:textColor="?attr/colorPrimary"
+                                android:textSize="@dimen/prodInfoSectionTextSize"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/productInfoTrigBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_arrow_down_24"
+                                android:padding="5dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/textView11"
+                                 />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/productInfoTV"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dummy_text_string"
+                            android:textSize="@dimen/prodInfoDescTextSize"
+                            android:textColor="?attr/colorTertiary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/prodInfoConstraintLayout"
+                            app:layout_constraintTop_toBottomOf="@+id/prodInfoConstraintLayout" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </ScrollView>
+
+        <!--Bottom Share and Add To Bag Button-->
+        <LinearLayout
+            android:id="@+id/bottomLinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <Button
+                android:id="@+id/bottomAddToBagBtn"
+                style="@style/ButtonWithBlackTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+
+                android:text="@string/add_to_bag_string" />
+
+            <Button
+                android:id="@+id/bottomShareBtn"
+                style="@style/ButtonWithWhiteTintAndBlackOutlineTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/share_string" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

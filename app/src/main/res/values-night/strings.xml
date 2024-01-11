@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AnaesthesiaDemoApp</string>
+    <string name="send_to">Send To</string>
+    <string name="quantity">Quantity</string>
+    <string name="qty_initial_value_string">1</string>
+    <string name="dummy_text_string">TextView</string>
+    <string name="add_to_bag_string">Add To Bag</string>
+    <string name="share_string">Share</string>
+    <string name="colors_string">Colors:</string>
+    <string name="initial_page_title_string">Loading..</string>
+    <string name="plus_string">+</string>
+    <string name="minus_string">-</string>
+</resources>
