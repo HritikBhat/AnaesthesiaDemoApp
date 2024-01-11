@@ -15,4 +15,6 @@
 
     <dimen name="prodSKUTextSize">14sp</dimen>
     <dimen name="prodEMITextSize">14sp</dimen>
+
+    <dimen name="colorItemWeightHeight">50dp</dimen>
 </resources>
